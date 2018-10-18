@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title th:replace="fragments/fragment :: headerFragment (title='Detail Pegawai')"></title>
+	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	<h2 th:text="'Lihat Data Pegawai - ' + ${pegawai.nip} "></h2>
+	
+	<table>
+			<tbody>
+				<tr>
+					<td align="center" th:text="NIP"></td> 
+					<td align="center" th:text="${pegawai.nip}"></td> 
+				</tr>
+				<tr>
+					<td align="center" th:text="Nama"></td> 
+					<td align="center" th:text="${pegawai.nama}"></td> 
+				</tr>
+				<tr>
+					<td align="center">Tempat Lahir</td> 
+					<td align="center" th:text="${pegawai.tempatLahir}"></td> 
+				</tr>
+				<tr>
+					<td align="center">Tanggal Lahir</td> 
+					<td align="center" th:text="${pegawai.tanggalLahir}"></td> 
+				</tr>
+				<tr>
+					<td align="center">Tahun Masuk</td> 
+					<td align="center" th:text="${pegawai.tahunMasuk}"></td> 
+				</tr>
+				<tr>
+					<td align="center">Nama Instansi</td> 
+					<td align="center" th:text="${pegawai.instansi.nama}"></td> 
+				</tr>
+				
+			</tbody>
+		</table>
+	
+</body>
+</html>
