@@ -29,6 +29,8 @@ tr:nth-child(even) {
 	<nav th:replace="fragments/fragment :: navbar"></nav>
 	<h2 th:text="'Lihat Data Pegawai - ' + ${pegawai.nip} "></h2>
 	
+	<br>
+	<br>
 	<table>
 			<tbody>
 				<tr>
@@ -54,6 +56,18 @@ tr:nth-child(even) {
 				<tr>
 					<td align="center">Nama Instansi</td> 
 					<td align="center" th:text="${pegawai.instansi.nama}"></td> 
+				</tr>
+				<tr>
+					<td align="center">Jabatan</td> 
+					<td>
+						<ul>
+							<li th:each="jabatan: ${pegawai.jabatanList}" th:text="${jabatan.nama}"></li>
+						</ul>
+					</td> 
+				</tr>
+				<tr>
+					<td align="center">Gaji</td>
+					<td th:text="${#numbers.formatDecimal(gajiPegawai, 0, 'COMMA', 2, 'POINT')}"></td>
 				</tr>
 				
 			</tbody>
