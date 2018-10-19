@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.apap.tugas1.model.JabatanModel;
 import com.apap.tugas1.service.JabatanService;
@@ -44,6 +45,26 @@ public class JabatanController {
 		
 		model.addAttribute("jabatan", jabatan);
 		return "detail-jabatan";
+	}
+	
+	@RequestMapping(value = "/jabatan/ubah", method = RequestMethod.GET)
+	private String updateJabatan(@RequestParam("idJabatan") long id, Model model) {
+		
+		JabatanModel jabatan = jabatanService.findJabatanById(id);
+		model.addAttribute("jabatan", jabatan);
+		System.out.println(id);
+		
+		
+		return "ubah-jabatan";
+	}
+	
+	
+	@RequestMapping(value = "/jabatan/ubah", method = RequestMethod.POST)
+	private String updateJabatanSubmit(@ModelAttribute JabatanModel jabatan, Model model){
+		
+		jabatanService.addJabatan(jabatan);
+		return "tambah";
+		
 	}
 		
 	

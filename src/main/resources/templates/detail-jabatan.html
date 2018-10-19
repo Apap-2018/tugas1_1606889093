@@ -52,16 +52,17 @@ tr:nth-child(even) {
 	
 	
 	<br>
-	<div>
-		<div>
-			<form th:action="@{/}">
+	<div class="row">
+		<div class ="col">
+			<form th:action="@{/jabatan/ubah}" th:method="GET">
+			<input type="hidden" name="idJabatan" th:value="${jabatan.id}" />
 			<button value="submit">Ubah</button>
 			</form>
 	
-				<div>
-					<form th:action="@{/}">
-					<button value="submit">Hapus</button>
-					</form>
+			<div>
+				<form th:action="@{/}">
+				<button value="submit">Hapus</button>
+				</form>
 				</div>
 		</div>
 	
