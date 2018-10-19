@@ -10,22 +10,50 @@
 
 <body>
 	<nav th:replace="fragments/fragment :: navbar"></nav>
-	<h2>Ubah Jabatan</h2>
 	
-<form th:action="@{/jabatan/ubah}" th:object="${jabatan}" method="POST">
-		<input type="hidden" name="idJabatan" th:value="${jabatan.id}" th:field="*{id}"/>
-		Nama: <br>
-		<input type="text" name="nama" th:value="${jabatan.nama}"/>
-		<br>
-		Deskripsi: <br>
-		<input type="text" name="deskripsi" th:value="${jabatan.deskripsi}"/>
-		<br>
-		Gaji Pokok: <br>
-		<input type="number" step="0.01" name="gajiPokok" th:value="${jabatan.gajiPokok}"/>
-		<br>
-		
-		<br><br>
-		<button type="submit">Simpan</button>
-	</form>
+	<div class="container-fluid">
+		<h2>Ubah Jabatan</h2>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">Form Ubah Jabatan</div>
+					<div class="card-body">
+						<form th:action="@{/jabatan/tambah}" th:object="${jabatan}" method="POST">
+						<input type="hidden" name="idJabatan" th:value="${jabatan.id}" th:field="*{id}"/>
+							<div class="row">
+								<div class="col-md-6">
+									<p>Nama</p>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="text" name="nama" th:value="${jabatan.nama}" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<p>Deskripsi</p>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="text" name="deskripsi" th:value="${jabatan.deskripsi}" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<p>Gaji Pokok</p>
+								</div>
+								<div class="col-md-6">
+									<input class="form-control" type="number" name="gajiPokok" th:value="${jabatan.gajiPokok}" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<button type="submit">Simpan</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
