@@ -20,6 +20,7 @@ public class PegawaiServiceImpl implements PegawaiService {
 		// TODO Auto-generated method stub
 		return pegawaiDb.findByNip(nip);
 	}
+	
 
 	
 }
