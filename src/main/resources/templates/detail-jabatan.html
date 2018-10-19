@@ -60,7 +60,8 @@ tr:nth-child(even) {
 			</form>
 	
 			<div>
-				<form th:action="@{/}">
+				<form th:action="@{/jabatan/hapus}" th:method "POST">
+				<input type="hidden" name="idJabatan" th:value="${jabatan.id}" />
 				<button value="submit">Hapus</button>
 				</form>
 				</div>

@@ -66,6 +66,15 @@ public class JabatanController {
 		return "tambah";
 		
 	}
+	
+	@RequestMapping(value = "/jabatan/hapus", method = RequestMethod.GET)
+	private String deleteJabatan(@RequestParam ("idJabatan") long id, Model model){
+		
+		if()
+		jabatanService.deleteJabatanById(id);
+		return "tambah";
+		
+	}
 		
 	
 	
