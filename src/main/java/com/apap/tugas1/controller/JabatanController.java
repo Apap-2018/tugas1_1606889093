@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.apap.tugas1.model.JabatanModel;
+import com.apap.tugas1.model.PegawaiModel;
 import com.apap.tugas1.service.JabatanService;
 
 @Controller
@@ -69,13 +70,21 @@ public class JabatanController {
 	
 	@RequestMapping(value = "/jabatan/hapus", method = RequestMethod.GET)
 	private String deleteJabatan(@RequestParam ("idJabatan") long id, Model model){
+		JabatanModel jabatan = jabatanService.findJabatanById(id);
 		
-		if()
-		jabatanService.deleteJabatanById(id);
-		return "tambah";
+		if(jabatan.getPegawaiList().size() == 0) {
+			jabatanService.deleteJabatanById(id);
+			return "hapus";
+		}
+		
+		else {
+			return "gagal-hapus-jabatan";
+		}
+		
+		
 		
 	}
 		
-	
+	//@RequestMapping(value = )
 	
 }
