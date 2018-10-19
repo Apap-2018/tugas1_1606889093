@@ -1,5 +1,8 @@
 package com.apap.tugas1.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,4 +30,16 @@ public class JabatanServiceImpl implements JabatanService {
 		return jabatanDb.getOne(id);
 	}
 	
-}
+	@Override
+	public List<JabatanModel> getJabatanList(){
+		return jabatanDb.findAll();
+	}
+
+	//@Override
+	//public Optional<JabatanModel> findJabatanDetailByID(Long id) {
+		// TODO Auto-generated method stub
+		//return jabatanDb.findById(id);
+	//}
+	
+	
+}	

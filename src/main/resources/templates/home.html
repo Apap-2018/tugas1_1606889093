@@ -47,14 +47,13 @@
 					<div class="card-header">
 						<h3>Lihat Detail Jabatan</h3>
 					</div>
-					<form th:action="@{/pegawai}" method="GET">
+					<form th:action="@{/jabatan/view}" method = "GET">
 						<div class="card-body">
 							<label for="nip">Pilih Jabatan</label>
 							<br>
-							<form th:action="@{/jabatan/view}" method = "GET">
 								<select th:name="idJabatan">
 									<option disabled="disabled" selected="selected">-- Pilih Jabatan --</option>
-									<option th:each="jabatan : ${listJabatan}" th:value="${jabatan.id}" th:text="${jabatan.nama}"></option>
+									<option th:each="jabatan : ${jabatanList}" th:value="${jabatan.id}" th:text="${jabatan.nama}"></option>
 								</select>
 							</form>
 							<button type="submit" class="btn btn-primary">Cari</button>
