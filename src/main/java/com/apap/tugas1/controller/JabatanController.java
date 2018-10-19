@@ -1,5 +1,7 @@
 package com.apap.tugas1.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -85,6 +87,12 @@ public class JabatanController {
 		
 	}
 		
-	//@RequestMapping(value = )
+	@RequestMapping(value = "/jabatan/viewall", method = RequestMethod.GET)
+	public String viewAllJabatan(Model model) {
+	
+		
+		model.addAttribute("listJabatan", jabatanService.findAllJabatan());
+		return "view-all-jabatan";
+	}
 	
 }

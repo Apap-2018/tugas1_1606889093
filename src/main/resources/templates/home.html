@@ -63,7 +63,38 @@
 				</div>
 				
 			</div>
+			
+			
+			
+			<div class="container-fluid">
+		
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<h3>Lihat Pegawai Termuda dan Tertua</h3>
+					</div>
+					<form th:action="@{/jabatan/view}" method = "GET">
+						<div class="card-body">
+							<label for="nip">Pilih Instansi</label>
+							<br>
+								<select th:name="idJabatan">
+									<option disabled="disabled" selected="selected">-- Pilih Jabatan --</option>
+									<option th:each="jabatan : ${jabatanList}" th:value="${jabatan.id}" th:text="${jabatan.nama}"></option>
+								</select>
+							</form>
+							<button type="submit" class="btn btn-primary">Cari</button>
+						</div>
+					</form>
+					
+				</div>
+				
+			</div>
 		</div>
+		</div>
+		
+		
 	</div>
 	
 </body>

@@ -46,5 +46,9 @@ public class JabatanServiceImpl implements JabatanService {
 		jabatanDb.deleteById(idJabatan);
 	}
 	
+	@Override
+	public List<JabatanModel> findAllJabatan(){
+		return jabatanDb.findAll();
+	}
 	
 }	

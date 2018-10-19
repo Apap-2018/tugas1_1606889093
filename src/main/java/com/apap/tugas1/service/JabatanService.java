@@ -11,4 +11,5 @@ public interface JabatanService {
 	List<JabatanModel> getJabatanList();
 	//Optional<JabatanModel> findJabatanDetailByID(Long id);
 	void deleteJabatanById(long idJabatan);
+	List<JabatanModel> findAllJabatan();
 }
