@@ -34,7 +34,7 @@ public class JabatanController {
 	private String addJabatanSubmit(@ModelAttribute JabatanModel jabatan, Model model){
 		
 		jabatanService.addJabatan(jabatan);
-		return "tambah";
+		return "berhasil-tambah-jabatan";
 		
 	}
 	
@@ -89,8 +89,10 @@ public class JabatanController {
 		
 	@RequestMapping(value = "/jabatan/viewall", method = RequestMethod.GET)
 	public String viewAllJabatan(Model model) {
-	
-		
+		List<JabatanModel> listJabatan = jabatanService.getJabatanList();
+		for(JabatanModel jabatan: listJabatan) {
+			jabatan.setSizePegawai(jabatan.jabatanSize());
+		}
 		model.addAttribute("listJabatan", jabatanService.findAllJabatan());
 		return "view-all-jabatan";
 	}
