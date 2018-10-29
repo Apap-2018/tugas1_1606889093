@@ -29,28 +29,14 @@ tr:nth-child(even) {
 
 <body>
 	<nav th:replace="fragments/fragment :: navbar"></nav>
-	<h2 th:text="'Detail Jabatan ' + ${jabatan.nama}"></h2>
 	<br>
 	
 	
 	
 	<br>
-	<div class="row">
-		<div class ="col">
-			<form th:action="@{/jabatan/ubah}" th:method="GET">
-			<input type="hidden" name="idJabatan" th:value="${jabatan.id}" />
-				<button type="submit" class="btn btn-primary">Ubah</button>
-			</form>
 	
-			<div class="col">
-				<form th:action="@{/jabatan/hapus}" th:method "POST">
-				<input type="hidden" name="idJabatan" th:value="${jabatan.id}"  />
-					<button type="submit" class="btn btn-primary">Hapus</button>
-				</form>
-				</div>
-		</div>
 	
-	</div>
+			
 	
 	
 	<div class="container-fluid">
@@ -60,7 +46,7 @@ tr:nth-child(even) {
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
-						<h3>Lihat Data Pegawai Berdasarkan NIP</h3>
+						<h3 th:text="'Detail Jabatan ' + ${jabatan.nama}"></h3>
 					</div>
 						<table>
 							<tbody>
@@ -82,8 +68,19 @@ tr:nth-child(even) {
 						</table>
 					
 				</div>
-				
+				<div class="row">
+		<div class ="col">
+			<form th:action="@{/jabatan/ubah}" th:method="GET">
+			<input type="hidden" name="idJabatan" th:value="${jabatan.id}" />
+				<button type="submit" class="btn btn-primary">Ubah</button>
+			</form>
 			</div>
+			<div class="col">
+				<form th:action="@{/jabatan/hapus}" th:method "POST">
+				<input type="hidden" name="idJabatan" th:value="${jabatan.id}"  />
+					<button type="submit" class="btn btn-danger">Hapus</button>
+				</form>
+				</div>
 		</div>
 	</div>
 	
